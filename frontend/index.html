@@ -14,7 +14,7 @@
 
 <script>
 async function fetchTasks() {
-  const res = await fetch("http://localhost:5000/tasks");
+  const res = await fetch("https://task-manager-backend-xi8k.onrender.com/tasks");
   const data = await res.json();
 
   const list = document.getElementById("taskList");
@@ -30,7 +30,7 @@ async function fetchTasks() {
 
 async function addTask() {
   const text = document.getElementById("taskInput").value;
-  await fetch("http://localhost:5000/tasks", {
+  await fetch("https://task-manager-backend-xi8k.onrender.com/tasks", {
     method: "POST",
     headers: {"Content-Type":"application/json"},
     body: JSON.stringify({text})
@@ -39,7 +39,7 @@ async function addTask() {
 }
 
 async function deleteTask(id) {
-  await fetch("http://localhost:5000/tasks/"+id, {
+  await fetch("https://task-manager-backend-xi8k.onrender.com/tasks/"+id, {
     method: "DELETE"
   });
   fetchTasks();
